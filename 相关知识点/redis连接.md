@@ -16,3 +16,10 @@
 - 第五步使用可视化工具
   - 在github上下载[AnotherRedisDesktopManager](https://gitee.com/qishibo/AnotherRedisDesktopManager/releases)redis可视化工具
   - 查看本机ip地址：ifconfig en0
+
+## 关于使用nginx前端的具体操作
+
+- 第一步查看nginx是否启动
+  - ps -ef | grep nginx
+- 第二步重启nginx
+  - brew services restart nginx
