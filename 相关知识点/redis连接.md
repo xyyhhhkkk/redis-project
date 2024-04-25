@@ -16,3 +16,22 @@
 - 第五步使用可视化工具
   - 在github上下载[AnotherRedisDesktopManager](https://gitee.com/qishibo/AnotherRedisDesktopManager/releases)redis可视化工具
   - 查看本机ip地址：ifconfig en0
+
+## 关于使用nginx前端的具体操作
+
+- 第一步查看nginx是否启动
+  - ps -ef | grep nginx
+- 第二步重启nginx
+  - brew services restart nginx
+
+## 关于使用jmeter多并发测试的具体操作
+
+#### 通过homebrew安装jmeter非常简便
+#### 直接在terminal里输入jmeter就启动jmeter
+#### jmeter汉化方法
+
+- 在Jmeter的安装目录下的bin目录中找到 jmeter.properties这个文件，用文本编辑器打开。 
+
+- 大概在37行，找到：#language=en 
+
+- 将其修改为：language=zh_CN
