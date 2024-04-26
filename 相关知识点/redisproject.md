@@ -79,7 +79,7 @@
 - 实现解决缓存击穿之互斥锁
 
     - 思路流程如下
-    ![alt text](image-34.png)
+    - ![alt text](image-34.png)
     - 代码实现步骤
     
     - 定义两个private函数，一个是上锁tryLock()，一个是撤销锁unlock()
@@ -89,7 +89,7 @@
 - 实现解决缓存击穿之逻辑过期
 
     - 思路流程如下
-    ![alt text](image-36.png)
+    - ![alt text](image-36.png)
     - 代码实现步骤
 
     - 使用互斥锁，上锁tryLock()，一个是撤销锁unlock()
