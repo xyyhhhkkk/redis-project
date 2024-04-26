@@ -77,9 +77,25 @@
 ![alt text](image-32.png)
 
 - 实现解决缓存击穿之互斥锁
-思路流程如下
+
+    - 思路流程如下
     - ![alt text](image-34.png)
-代码实现步骤
+    - 代码实现步骤
+    
     - 定义两个private函数，一个是上锁tryLock()，一个是撤销锁unlock()
     - 定义一个queryWithMytes()函数，实现互斥锁的关键在于这一句递归
     ![alt text](image-35.png)
+
+- 实现解决缓存击穿之逻辑过期
+
+    - 思路流程如下
+    - ![alt text](image-36.png)
+    - 代码实现步骤
+
+    - 使用互斥锁，上锁tryLock()，一个是撤销锁unlock()
+    - 由于定义逻辑过期需要加一个过期时间属性，直接动用实体类不好，于是新建了一个实体类叫做RedisData
+    - RedisData的妙处在于将Object和LocalDateTime分开定义成两个属性，这就成功将过期时间与对象本身剥离开来了
+    ![alt text](image-37.png)
+    - 定义一个queryWithlogicalExpire()函数，在该函数中，由于存入缓存的是一个RedisData对象，因此需要反序列化之后通过getData()把Shop对象取出来，然后通过getExpireTime()把过期时间取出来。如果过期了，就去获取互斥锁开启独立线程进行缓存重建。重点在于获取锁之后需要再次进行过期验证(doublecheck)。然后声明开启独立线程进行缓存重建。
+    - saveShop2Redis()函数是用来进行缓存重建的
+    ![alt text](image-38.png)
