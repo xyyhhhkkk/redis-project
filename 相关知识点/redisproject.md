@@ -99,3 +99,13 @@
     - 定义一个queryWithlogicalExpire()函数，在该函数中，由于存入缓存的是一个RedisData对象，因此需要反序列化之后通过getData()把Shop对象取出来，然后通过getExpireTime()把过期时间取出来。如果过期了，就去获取互斥锁开启独立线程进行缓存重建。重点在于获取锁之后需要再次进行过期验证(doublecheck)。然后声明开启独立线程进行缓存重建。
     - saveShop2Redis()函数是用来进行缓存重建的
     ![alt text](image-38.png)
+<<<<<<< HEAD
+
+
+#### 缓存工具封装
+![alt text](image-39.png)
+##### 方法一
+  
+=======
+
+>>>>>>> 6dcbb80984031a8460c968a854860c32d19d0ee2
